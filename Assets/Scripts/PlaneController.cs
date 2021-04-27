@@ -7,6 +7,8 @@ public class PlaneController : MonoBehaviour
     public Vector3 strikeLocation;
     private CharacterController controller;
     public float speed;
+    public GameObject missile;
+    private bool canFire = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,9 @@ public class PlaneController : MonoBehaviour
     {
         controller.Move(transform.forward * speed * -1f);
 
-        if (Vector3.Distance(transform.position, strikeLocation) <= 30)
+        if (Vector3.Distance(transform.position, strikeLocation) <= 2000f && canFire)
         {
+            canFire = false;
             fireMissiles();
         }
         if (Vector3.Distance(new Vector3 (0, 0, 0), transform.position) >= 10000)
@@ -32,6 +35,10 @@ public class PlaneController : MonoBehaviour
 
     private void fireMissiles()
     {
-
+        Debug.Log("fire");
+        missile = Instantiate(missile);
+        missile.GetComponent<MissileController>().target = strikeLocation;
+        missile.transform.position = transform.position;
+        missile.transform.LookAt(strikeLocation);
     }
 }

@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("k") && !radioChest.isActive())
         {
             Cursor.lockState = CursorLockMode.Confined;
+            setActive(false);
             xPos.SetActive(true);
             zPos.SetActive(true);
             submit.SetActive(true);
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
         zPos.SetActive(false);
         submit.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        setActive(true);
     }
 
     public bool getActive()

@@ -26,6 +26,7 @@ public class PlaneController : MonoBehaviour
         {
             canFire = false;
             fireMissiles();
+            speed *= 1.4f;
         }
         if (Vector3.Distance(new Vector3 (0, 0, 0), transform.position) >= 10000)
         {

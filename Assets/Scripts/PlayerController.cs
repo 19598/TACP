@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && active)
         {
             if (Vector3.Distance(transform.position, chest1.transform.position) <= 10)
             {

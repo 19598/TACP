@@ -6,7 +6,7 @@ public class MissileController : MonoBehaviour
 {
     public Vector3 target;
     // Start is called before the first frame update
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         Explode();
     }
@@ -24,5 +24,6 @@ public class MissileController : MonoBehaviour
     void Explode()
     {
         Debug.Log("Explode");
+        Destroy(gameObject);
     }
 }

@@ -5,8 +5,10 @@ using UnityEngine;
 public class MissileController : MonoBehaviour
 {
     public Vector3 target;
+    public float sphere = 1f;
+    public GameObject particles;
     // Start is called before the first frame update
-    void OnTriggerEnter(Collider col)
+    void OnCollisionEnter()
     {
         Explode();
     }
@@ -24,6 +26,8 @@ public class MissileController : MonoBehaviour
     void Explode()
     {
         Debug.Log("Explode");
+        particles = Instantiate(particles);
+        particles.transform.position = transform.position;
         Destroy(gameObject);
     }
 }

@@ -39,7 +39,7 @@ public class PlaneController : MonoBehaviour
         Debug.Log("fire");
         missile = Instantiate(missile);
         missile.GetComponent<MissileController>().target = strikeLocation;
-        missile.transform.position = transform.position;
+        missile.transform.position = transform.position + transform.up * -5f;
         missile.transform.LookAt(strikeLocation);
     }
 }

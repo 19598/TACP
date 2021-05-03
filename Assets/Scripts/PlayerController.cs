@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public GameObject jetPrefab;
     public GameObject jet;
     public Puzzle radioChest;
+    public float lastFired;
+    public float resetTime = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,8 +93,12 @@ public class PlayerController : MonoBehaviour
         {
             float x = float.Parse(xPos.GetComponent<TMPro.TMP_InputField>().text);
             float z = float.Parse(zPos.GetComponent<TMPro.TMP_InputField>().text);
-            jet = Instantiate(jetPrefab);
-            jet.GetComponent<PlaneController>().strikeLocation = new Vector3(x, -10f, z);
+            if (Time.time - lastFired >= resetTime)
+            {
+                lastFired = Time.time + resetTime;
+                jet = Instantiate(jetPrefab);
+                jet.GetComponent<PlaneController>().strikeLocation = new Vector3(x, -10f, z);
+            }
         }
         catch { }
         xPos.SetActive(false);

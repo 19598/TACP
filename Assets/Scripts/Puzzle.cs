@@ -72,7 +72,9 @@ public class Puzzle : MonoBehaviour
 
     public void CheckPuzzle()
     {
-        if (drop1.GetComponent<TMPro.TMP_Dropdown>().value == operations[0] && drop2.GetComponent<TMPro.TMP_Dropdown>().value == operations[1])
+        int val1 = drop1.GetComponent<TMPro.TMP_Dropdown>().value;
+        int val2 = drop2.GetComponent<TMPro.TMP_Dropdown>().value;
+        if (val1 == operations[0] && val2 == operations[1])
         {
             myText.SetActive(false);
             drop1.SetActive(false);
@@ -81,6 +83,19 @@ public class Puzzle : MonoBehaviour
             collectedItem.SetActive(true);
             active = false;
             player.setActive(true);
+        }
+        else if ((operations[0] == 1 || operations [0] == 2) && (operations[1] == 1 || operations[1] == 2))
+        {
+            if ((val1 == 1 && val2 == 2) || (val1 == 2 && val2 == 1))
+            {
+                myText.SetActive(false);
+                drop1.SetActive(false);
+                drop2.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                collectedItem.SetActive(true);
+                active = false;
+                player.setActive(true);
+            }
         }
         else
         {

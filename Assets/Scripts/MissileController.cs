@@ -7,9 +7,15 @@ public class MissileController : MonoBehaviour
     public Vector3 target;
     public float sphere = 1f;
     public GameObject particles;
+    public AudioSource explosionSound;
     // Start is called before the first frame update
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision col)
     {
+        if (col.gameObject.CompareTag("Explodeable"))
+        {
+            Destroy(col.gameObject);
+            Win();
+        }
         Explode();
     }
 
@@ -25,9 +31,15 @@ public class MissileController : MonoBehaviour
 
     void Explode()
     {
+        AudioSource.PlayClipAtPoint(explosionSound.clip, transform.position);
         Debug.Log("Explode");
         particles = Instantiate(particles);
         particles.transform.position = transform.position;
-        Destroy(gameObject);
+        //Destroy(gameObject);
+    }
+
+    void Win()
+    {
+
     }
 }

@@ -134,6 +134,8 @@ MonoBehaviour:
   sphere: 1
   particles: {fileID: 2646781631121158760, guid: 884c27afed7e62041bab2ef082f301fc, type: 3}
   explosionSound: {fileID: 4690434307306722561}
+  alertText: {fileID: 8070316176775118932, guid: 6ad8258a9579a5b44b9a6ed8b19ba861, type: 3}
+  myCanvas: {fileID: 0}
 --- !u!136 &3379980688414236669
 CapsuleCollider:
   m_ObjectHideFlags: 0

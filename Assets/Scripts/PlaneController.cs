@@ -9,6 +9,7 @@ public class PlaneController : MonoBehaviour
     public float speed;
     public GameObject missile;
     private bool canFire = true;
+    public PlayerController Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlaneController : MonoBehaviour
     {
         Debug.Log("fire");
         missile = Instantiate(missile);
+        missile.GetComponent<MissileController>().Player = Player;
         missile.GetComponent<MissileController>().target = strikeLocation;
         missile.transform.position = transform.position + transform.up * -5f;
         missile.transform.LookAt(strikeLocation);

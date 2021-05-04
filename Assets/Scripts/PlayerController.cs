@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     public bool isGrounded;
     public bool active = true;
+    public TMPro.TMP_Text messages;
     public GameObject xPos;
     public GameObject zPos;
     public GameObject submit;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public GameObject jet;
     public Puzzle radioChest;
     public float lastFired;
-    public float resetTime = 3f;
+    public float resetTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,11 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -5f;
+        }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            messages.text = "";
         }
 
         if (active)
@@ -93,12 +99,10 @@ public class PlayerController : MonoBehaviour
         {
             float x = float.Parse(xPos.GetComponent<TMPro.TMP_InputField>().text);
             float z = float.Parse(zPos.GetComponent<TMPro.TMP_InputField>().text);
-            if (Time.time - lastFired >= resetTime)
-            {
-                lastFired = Time.time + resetTime;
-                jet = Instantiate(jetPrefab);
-                jet.GetComponent<PlaneController>().strikeLocation = new Vector3(x, -10f, z);
-            }
+            lastFired = Time.time + resetTime;
+            jet = Instantiate(jetPrefab);
+            jet.GetComponent<PlaneController>().Player = this;
+            jet.GetComponent<PlaneController>().strikeLocation = new Vector3(x, -10f, z);
         }
         catch { }
         xPos.SetActive(false);
@@ -116,5 +120,9 @@ public class PlayerController : MonoBehaviour
     public void setActive(bool state)
     {
         active = state;
+    }
+    public void Win()
+    {
+        messages.text = "Congratulations, you destroyed the bunker and beat the game! Press escape to close this message.";
     }
 }

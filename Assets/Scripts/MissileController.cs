@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MissileController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class MissileController : MonoBehaviour
     public float sphere = 1f;
     public GameObject particles;
     public AudioSource explosionSound;
+    public PlayerController Player;
     // Start is called before the first frame update
     void OnCollisionEnter(Collision col)
     {
@@ -40,6 +42,6 @@ public class MissileController : MonoBehaviour
 
     void Win()
     {
-
+        Player.Win();
     }
 }

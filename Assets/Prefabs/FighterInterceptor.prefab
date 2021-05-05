@@ -257,6 +257,7 @@ MonoBehaviour:
   strikeLocation: {x: 0, y: 0, z: 0}
   speed: 3
   missile: {fileID: 1201819671774788908, guid: 2fcb052dcd8f22944b8cd99c6c45950b, type: 3}
+  Player: {fileID: 0}
 --- !u!82 &8725674413262153851
 AudioSource:
   m_ObjectHideFlags: 0

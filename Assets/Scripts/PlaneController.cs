@@ -13,8 +13,11 @@ public class PlaneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.LookAt(strikeLocation);
-        transform.Rotate(new Vector3(transform.eulerAngles.x, 180, 0));
+        if (canFire)
+        {
+            transform.LookAt(strikeLocation);
+            transform.Rotate(new Vector3(transform.eulerAngles.x, 180, 0));
+        }
         controller = this.GetComponent<CharacterController>();
     }
 
@@ -43,5 +46,10 @@ public class PlaneController : MonoBehaviour
         missile.GetComponent<MissileController>().target = strikeLocation;
         missile.transform.position = transform.position + transform.up * -5f;
         missile.transform.LookAt(strikeLocation);
+    }
+
+    public void SetFire(bool value)
+    {
+        canFire = value;
     }
 }

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-    Vector3 velocity;
+    public Vector3 velocity;
     public GameObject chest1;
     public GameObject chest2;
     public GameObject chest3;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public Puzzle radioChest;
     public float lastFired;
     public float resetTime = 0.5f;
+    private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4719f}};
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +92,11 @@ public class PlayerController : MonoBehaviour
             zPos.SetActive(true);
             submit.SetActive(true);
         }
+
+        if (Input.GetKeyDown("f"))
+        {
+            Win();
+        }
     }
 
     public void strike()
@@ -124,5 +130,12 @@ public class PlayerController : MonoBehaviour
     public void Win()
     {
         messages.text = "Congratulations, you destroyed the bunker and beat the game! Press escape to close this message.";
+        for (int i = 0; i < 5; i++) {
+            jet = Instantiate(jetPrefab);
+            jet.transform.position = new Vector3(positions[i,0], 400f, positions[i,1]);
+            Debug.Log(positions[i, 0]);
+            Debug.Log(positions[i, 1]);
+            jet.GetComponent<PlaneController>().SetFire(false);
+        }
     }
 }

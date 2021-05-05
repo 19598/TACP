@@ -376,11 +376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5568371526223589888, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_TagString
@@ -2789,7 +2789,8 @@ MonoBehaviour:
   m_text: You are a Tactical Air Control Party (TACP) soldier, and your goal is to
     destroy an enemy bunker. You can find a radio to call in an air strike as well
     as the coordinates of the bunker in 3 chests located around the world. Solve
-    puzzles to unlock the chests. Press escape to close this text message.
+    puzzles to unlock the chests. Press e to interact with the chests. Press escape
+    to close this text message.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2972,7 +2973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326155221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -718, y: 5.43, z: -536}
+  m_LocalPosition: {x: -683, y: 7.1, z: -586}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 963194228}
@@ -2997,6 +2998,7 @@ MonoBehaviour:
   speed: 50
   gravity: -68.67
   jumpHeight: 10
+  velocity: {x: 0, y: 0, z: 0}
   chest1: {fileID: 1816328832}
   chest2: {fileID: 964050999}
   chest3: {fileID: 1092315568}
@@ -3113,11 +3115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5568371526223589888, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3129,7 +3131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_TagString
@@ -3567,11 +3569,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5568371526223589888, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3583,7 +3585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_TagString

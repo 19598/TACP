@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetKeyDown("e") && active)
+        if ((Input.GetKeyDown("e") || Input.GetButtonDown("Fire2")) && active)
         {
             if (Vector3.Distance(transform.position, chest1.transform.position) <= 10)
             {
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("k") && !radioChest.isActive())
+        if ((Input.GetKeyDown("k") || Input.GetButtonDown("Fire1")) && !radioChest.isActive())
         {
             Cursor.lockState = CursorLockMode.Confined;
             setActive(false);

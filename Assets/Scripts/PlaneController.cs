@@ -18,6 +18,10 @@ public class PlaneController : MonoBehaviour
             transform.LookAt(strikeLocation);
             transform.Rotate(new Vector3(transform.eulerAngles.x, 180, 0));
         }
+        else
+        {
+            speed *= 0.5f;
+        }
         controller = this.GetComponent<CharacterController>();
     }
 

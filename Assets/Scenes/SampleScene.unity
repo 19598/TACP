@@ -320,7 +320,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_LocalScale.x
@@ -409,7 +409,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5bedce5ebe4dca0458b413f408d88cc6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5bedce5ebe4dca0458b413f408d88cc6, type: 3}
       propertyPath: m_LocalScale.x
@@ -514,7 +514,7 @@ Transform:
   - {fileID: 1545351477}
   - {fileID: 431036067}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &369850329
 GameObject:
@@ -1367,6 +1367,75 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3594211082126792287, guid: 563e7971ee411b1428569e960247aba5, type: 3}
   m_PrefabInstance: {fileID: 612906628}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &651273852
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1868719718617372, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_Name
+      value: ThinBookSVSketchfab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1426.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -556.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156937118457966, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
 --- !u!1 &666603424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &741957463
 GameObject:
@@ -1819,7 +1888,7 @@ RectTransform:
   - {fileID: 612906629}
   - {fileID: 1189628837}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2788,9 +2857,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: You are a Tactical Air Control Party (TACP) soldier, and your goal is to
     destroy an enemy bunker. You can find a radio to call in an air strike as well
-    as the coordinates of the bunker in 3 chests located around the world. Solve
-    puzzles to unlock the chests. Press e to interact with the chests. Press escape
-    to close this text message.
+    as the coordinates of the bunker in 3 chests located around the world (look in
+    the corners.) Solve puzzles to unlock the chests. Press e to interact with the
+    chests. Press escape to close this text message.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2980,7 +3049,7 @@ Transform:
   - {fileID: 1177908809}
   - {fileID: 741957464}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1326155224
 MonoBehaviour:
@@ -3002,6 +3071,7 @@ MonoBehaviour:
   chest1: {fileID: 1816328832}
   chest2: {fileID: 964050999}
   chest3: {fileID: 1092315568}
+  book: {fileID: 2110159920}
   groundCheck: {fileID: 1177908809}
   groundDistance: 1
   groundMask:
@@ -3059,7 +3129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_LocalScale.x
@@ -3513,7 +3583,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 107b43c39c8fc1149be3f5e6b580bb95, type: 3}
       propertyPath: m_LocalScale.x
@@ -3800,7 +3870,7 @@ Transform:
   - {fileID: 666603428}
   - {fileID: 813045841}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694278330 stripped
 GameObject:
@@ -4170,3 +4240,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2110159920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1868719718617372, guid: 43255e9127dc52445bb6d30afb793375, type: 3}
+  m_PrefabInstance: {fileID: 651273852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2110159921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110159920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8511e54087c4c94786db92b3b9dd151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

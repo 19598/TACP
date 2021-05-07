@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject chest1;
     public GameObject chest2;
     public GameObject chest3;
+    public GameObject book;
     public Transform groundCheck;
     public float groundDistance = 1f;
     public LayerMask groundMask;
@@ -70,21 +71,25 @@ public class PlayerController : MonoBehaviour
 
         if ((Input.GetKeyDown("e") || Input.GetButtonDown("Fire2")) && active)
         {
-            if (Vector3.Distance(transform.position, chest1.transform.position) <= 10)
+            if (Vector3.Distance(transform.position, chest1.transform.position) <= 50)
             {
                 chest1.GetComponent<Puzzle>().StartPuzzle();
             }
-            if (Vector3.Distance(transform.position, chest2.transform.position) <= 10)
+            else if (Vector3.Distance(transform.position, chest2.transform.position) <= 50)
             {
                 chest2.GetComponent<Puzzle>().StartPuzzle();
             }
-            if (Vector3.Distance(transform.position, chest3.transform.position) <= 10)
+            else if (Vector3.Distance(transform.position, chest3.transform.position) <= 50)
             {
                 chest3.GetComponent<Puzzle>().StartPuzzle();
             }
+            else if (Vector3.Distance(transform.position, book.transform.position) <= 50)
+            {
+                messages.text = "TACP (pronounced tack-pea) stands for Tactical Air Control Party. Their job is to attach to units of the armed forces, usually special forces of branches other than the Air Force, and call in air support. They are special forces themselves, and go through a pipeline that is over half a year long. Their training involves SERE and Airborne school. Press escape to close.";
+            }
         }
 
-        if ((Input.GetKeyDown("k") || Input.GetButtonDown("Fire1")) && !radioChest.isActive())
+        if ((Input.GetKeyDown("k") || Input.GetButtonDown("Fire3")) && !radioChest.isActive())
         {
             Cursor.lockState = CursorLockMode.Confined;
             setActive(false);

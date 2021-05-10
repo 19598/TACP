@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-
     public CharacterController controller;
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
+    public AudioSource walkingSound;
     public Vector3 velocity;
     public GameObject chest1;
     public GameObject chest2;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public bool active = true;
     public TMPro.TMP_Text messages;
+    public TMPro.TMP_Text GPS;
     public GameObject xPos;
     public GameObject zPos;
     public GameObject submit;
@@ -29,46 +30,70 @@ public class PlayerController : MonoBehaviour
     public Puzzle radioChest;
     public float lastFired;
     public float resetTime = 0.5f;
-    private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4719f}};
+    private bool hasGPS = false;
+    private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4719f}};//positions to spawn the jets at
     // Start is called before the first frame update
     void Start()
     {
+        walkingSound.Play();
+        walkingSound.Pause();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);//checks if player is in the ground
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)//clamps y velocity
         {
             velocity.y = -5f;
         }
 
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel"))//clears the alert text
         {
             messages.text = "";
         }
 
         if (active)
         {
+            //gets inputs
             float z = Input.GetAxis("Horizontal");
             float x = Input.GetAxis("Vertical");
 
-            Vector3 move = transform.forward * x + transform.right * z;
+            Vector3 move = transform.forward * x + transform.right * z;//calculates the amount to move the player
 
-            controller.Move(move * speed * Time.deltaTime);
+            controller.Move(move * speed * Time.deltaTime);//moves the player
 
+            //this block plays the walking sound if the player is on the ground and moving
+            if (!(z == 0 && x == 0) && isGrounded)
+            {
+                Debug.Log("moving and on ground");
+                walkingSound.UnPause();
+            }
+            else
+            {
+                walkingSound.Pause();
+            }
+
+            //makes the player jump if it is on the ground
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             }
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        //displays the player's coordinates if they unlocked the GPS
+        if (hasGPS)
+        {
+            GPS.text = "Current X: " + transform.position.x.ToString() + "\nCurrent Z: " + transform.position.z.ToString();
+        }
 
-        controller.Move(velocity * Time.deltaTime);
+        
+        velocity.y += gravity * Time.deltaTime;//increases the veloctiy of the player
 
+        controller.Move(velocity * Time.deltaTime);//moves the player down
+
+        //opens the chest or grabs the book if the player is close enough to one of the chests or the book
         if ((Input.GetKeyDown("e") || Input.GetButtonDown("Fire2")) && active)
         {
             if (Vector3.Distance(transform.position, chest1.transform.position) <= 50)
@@ -85,6 +110,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (Vector3.Distance(transform.position, book.transform.position) <= 50)
             {
+                hasGPS = true;
                 messages.text = "TACP (pronounced tack-pea) stands for Tactical Air Control Party. Their job is to attach to units of the armed forces, usually special forces of branches other than the Air Force, and call in air support. They are special forces themselves, and go through a pipeline that is over half a year long. Their training involves SERE and Airborne school. Press escape to close.";
             }
         }

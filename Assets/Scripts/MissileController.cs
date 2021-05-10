@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class MissileController : MonoBehaviour
 {
     public Vector3 target;
-    public float sphere = 1f;
     public GameObject particles;
     public AudioSource explosionSound;
     public PlayerController Player;
@@ -24,7 +23,7 @@ public class MissileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + transform.forward * 5f;
+        transform.position = transform.position + transform.forward * 3f;
         if (transform.position.y <= -10)
         {
             Destroy(gameObject);

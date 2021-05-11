@@ -9,34 +9,42 @@ public class MissileController : MonoBehaviour
     public GameObject particles;
     public AudioSource explosionSound;
     public PlayerController Player;
-    // Start is called before the first frame update
+
     void OnCollisionEnter(Collision col)
     {
+        //if the missile hits an object that is marked as an Explodeable, it destroys the gameobject and calls its win method
         if (col.gameObject.CompareTag("Explodeable"))
         {
             Destroy(col.gameObject);
             Win();
         }
+
+        //explodes if it hits anything
         Explode();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + transform.forward * 3f;
-        if (transform.position.y <= -10)
+        transform.LookAt(target);//points towards the strike location
+
+        transform.position = transform.position + transform.forward * 3f;//moves the missile forwards
+
+        //explodes if it is low enough or within 5 units of its target
+        if (transform.position.y <= -10 || Vector3.Distance(target, transform.position) <= 5)
         {
-            Destroy(gameObject);
+            Explode();
         }
     }
 
     void Explode()
     {
-        AudioSource.PlayClipAtPoint(explosionSound.clip, transform.position);
-        Debug.Log("Explode");
+        AudioSource.PlayClipAtPoint(explosionSound.clip, transform.position);//makes explosion noise
+
+        //creates particles and sets them to the explosion location
         particles = Instantiate(particles);
         particles.transform.position = transform.position;
-        //Destroy(gameObject);
+
+        Destroy(gameObject);//destroys this missile
     }
 
     void Win()

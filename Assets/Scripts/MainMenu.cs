@@ -6,20 +6,18 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Transform camera;
-    // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//moves to next scene
     }
 
-    // Update is called once per frame
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit();//quits the game
     }
 
     public void Update()
     {
-        camera.Rotate(0, 0.05f, 0);
+        camera.Rotate(0, 0.05f, 0);//slowly rotates the camera, just for fun
     }
 }

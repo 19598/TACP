@@ -28,10 +28,12 @@ public class PlayerController : MonoBehaviour
     public GameObject jetPrefab;
     public GameObject jet;
     public Puzzle radioChest;
-    public float lastFired;
-    public float resetTime = 0.5f;
     private bool hasGPS = false;
     private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4719f}};//positions to spawn the jets at
+
+    RaycastHit hitInfo;
+    public Camera myCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* For development only. Allows the calling in of air strikes wherever the user points and clicks
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out hitInfo))
+            {
+                jet = Instantiate(jetPrefab);
+                jet.GetComponent<PlaneController>().Player = this;
+                jet.GetComponent<PlaneController>().strikeLocation = hitInfo.point;
+            }
+        }*/
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);//checks if player is in the ground
 
         if (isGrounded && velocity.y < 0)//clamps y velocity
@@ -67,7 +80,6 @@ public class PlayerController : MonoBehaviour
             //this block plays the walking sound if the player is on the ground and moving
             if (!(z == 0 && x == 0) && isGrounded)
             {
-                Debug.Log("moving and on ground");
                 walkingSound.UnPause();
             }
             else
@@ -111,10 +123,11 @@ public class PlayerController : MonoBehaviour
             else if (Vector3.Distance(transform.position, book.transform.position) <= 50)
             {
                 hasGPS = true;
-                messages.text = "TACP (pronounced tack-pea) stands for Tactical Air Control Party. Their job is to attach to units of the armed forces, usually special forces of branches other than the Air Force, and call in air support. They are special forces themselves, and go through a pipeline that is over half a year long. Their training involves SERE and Airborne school. Press escape to close.";
+                messages.text = "You found a GPS and a book about TACP! It reads: TACP (pronounced tack-pea) stands for Tactical Air Control Party. Their job is to attach to units of the armed forces, usually special forces of branches other than the Air Force, and call in air support. They are special forces themselves, and go through a pipeline that is over half a year long. Their training involves SERE and Airborne school. Press escape to close.";
             }
         }
 
+        //brings up the menu to call in the air strike if the user has the radio and presses k
         if ((Input.GetKeyDown("k") || Input.GetButtonDown("Fire3")) && !radioChest.isActive())
         {
             Cursor.lockState = CursorLockMode.Confined;
@@ -123,25 +136,26 @@ public class PlayerController : MonoBehaviour
             zPos.SetActive(true);
             submit.SetActive(true);
         }
-
-        if (Input.GetKeyDown("f"))
-        {
-            Win();
-        }
     }
 
-    public void strike()
+    public void strike()//this calls in an air strike
     {
         try
         {
+            //gets the values of the input fields
             float x = float.Parse(xPos.GetComponent<TMPro.TMP_InputField>().text);
             float z = float.Parse(zPos.GetComponent<TMPro.TMP_InputField>().text);
-            lastFired = Time.time + resetTime;
-            jet = Instantiate(jetPrefab);
-            jet.GetComponent<PlaneController>().Player = this;
-            jet.GetComponent<PlaneController>().strikeLocation = new Vector3(x, -10f, z);
+
+            if (Physics.Raycast(new Vector3(x, 1000, z), Vector3.down, out hitInfo))//creates raycast to find highest point above the x and z coordinates, and only fires missile if it will hit something
+            {
+                jet = Instantiate(jetPrefab);//creates jet in editor
+                jet.GetComponent<PlaneController>().Player = this;//gives jet a reference to this player
+                jet.GetComponent<PlaneController>().strikeLocation = hitInfo.point;//sets the strike location to the point found with the raycast
+            }
         }
         catch { }
+
+        //makes all the UI neccessary for striking go away
         xPos.SetActive(false);
         zPos.SetActive(false);
         submit.SetActive(false);
@@ -160,12 +174,12 @@ public class PlayerController : MonoBehaviour
     }
     public void Win()
     {
-        messages.text = "Congratulations, you destroyed the bunker and beat the game! Press escape to close this message.";
+        messages.text = "Congratulations, you destroyed the bunker and beat the game! Press escape to close this message.";//displays text telling the user that they beat the game
+
+        //creates 5 jets to do a flyover, specifiying that they will not fire a missile and putting them in a v formation
         for (int i = 0; i < 5; i++) {
             jet = Instantiate(jetPrefab);
             jet.transform.position = new Vector3(positions[i,0], 400f, positions[i,1]);
-            Debug.Log(positions[i, 0]);
-            Debug.Log(positions[i, 1]);
             jet.GetComponent<PlaneController>().SetFire(false);
         }
     }

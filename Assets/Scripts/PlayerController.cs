@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* For development only. Allows the calling in of air strikes wherever the user points and clicks
-        if (Input.GetButtonDown("Fire1"))
+        ///* For development only. Allows the calling in of air strikes wherever the user points and clicks
+        if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
         {
             if (Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out hitInfo))
             {
@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
                 jet.GetComponent<PlaneController>().Player = this;
                 jet.GetComponent<PlaneController>().strikeLocation = hitInfo.point;
             }
-        }*/
+        }
+        //*/
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);//checks if player is in the ground
 

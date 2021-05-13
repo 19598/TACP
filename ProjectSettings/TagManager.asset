@@ -7,6 +7,7 @@ TagManager:
   - Chest
   - Ground
   - Explodeable
+  - Missile
   layers:
   - Default
   - TransparentFX

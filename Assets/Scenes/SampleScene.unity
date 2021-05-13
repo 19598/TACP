@@ -2844,7 +2844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1107693914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2862,7 +2862,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 5}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107693915
 MonoBehaviour:
@@ -3070,7 +3070,7 @@ MonoBehaviour:
     destroy an enemy bunker. You can find a radio to call in an air strike as well
     as the coordinates of the bunker in 3 chests located around the world (look in
     the corners.) Solve puzzles to unlock the chests. Press e to interact with the
-    chests. Press escape to close this text message.
+    chests. Press escape to close this message.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   controller: {fileID: 1326155226}
   speed: 50
   gravity: -68.67
-  jumpHeight: 10
+  jumpHeight: 15
   walkingSound: {fileID: 1326155223}
   velocity: {x: 0, y: 0, z: 0}
   chest1: {fileID: 1816328832}

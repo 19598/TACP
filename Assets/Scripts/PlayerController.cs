@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public GameObject jet;
     public Puzzle radioChest;
     private bool hasGPS = false;
-    private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4719f}};//positions to spawn the jets at
+    private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4714f}};//positions to spawn the jets at
 
     RaycastHit hitInfo;
     public Camera myCamera;
@@ -44,7 +44,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ///* For development only. Allows the calling in of air strikes wherever the user points and clicks
+        /* do a single line comment here to enable
+        //For development only. Allows the calling in of air strikes wherever the user points and clicks
+        //Left click shoots rapidly, right click is single fire
         if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
         {
             if (Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out hitInfo))
@@ -93,6 +95,10 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             }
+        }
+        else
+        {
+            walkingSound.Pause();
         }
 
         //displays the player's coordinates if they unlocked the GPS

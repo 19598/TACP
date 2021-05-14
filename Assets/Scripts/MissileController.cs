@@ -32,7 +32,7 @@ public class MissileController : MonoBehaviour
         transform.position += transform.forward * 1500f * Time.deltaTime;//moves the missile forwards
 
         //explodes if it is low enough or within 5 units of its target
-        if (transform.position.y <= -10 || Vector3.Distance(target, transform.position) <= 5)
+        if (transform.position.y <= -10 || Vector3.Distance(target, transform.position) <= 10)
         {
             Explode();
         }

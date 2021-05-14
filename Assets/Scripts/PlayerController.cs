@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public GameObject jetPrefab;
     public GameObject jet;
     public Puzzle radioChest;
+    public GameObject reticle;
+    public bool superTACP = false;
     private bool hasGPS = false;
     private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4714f}};//positions to spawn the jets at
 
@@ -44,10 +46,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* do a single line comment here to enable
-        //For development only. Allows the calling in of air strikes wherever the user points and clicks
-        //Left click shoots rapidly, right click is single fire
-        if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
+        if ((Input.GetButton("Fire1") || Input.GetButtonDown("Fire2")) && superTACP)
         {
             if (Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out hitInfo))
             {
@@ -56,7 +55,6 @@ public class PlayerController : MonoBehaviour
                 jet.GetComponent<PlaneController>().strikeLocation = hitInfo.point;
             }
         }
-        //*/
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);//checks if player is in the ground
 
@@ -181,7 +179,9 @@ public class PlayerController : MonoBehaviour
     }
     public void Win()
     {
-        messages.text = "Congratulations, you destroyed the bunker and beat the game! Press escape to close this message.";//displays text telling the user that they beat the game
+        messages.text = "Congratulations, you destroyed the bunker and beat the game! You've unlocked Super TACP, which lets you call in air strikes by clicking the left and right mouse buttons. Press escape to close this message.";//displays text telling the user that they beat the game
+        superTACP = true;//makes the player super
+        reticle.active = true;//sets up the reticle so the player can see where they are pointing
 
         //creates 5 jets to do a flyover, specifiying that they will not fire a missile and putting them in a v formation
         for (int i = 0; i < 5; i++) {

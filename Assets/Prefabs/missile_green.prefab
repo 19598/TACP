@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201819671774788908}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 127.16227, y: 5.0860004, z: -385.75812}
+  m_LocalPosition: {x: 127.16227, y: 0, z: -385.75812}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1201819671774580926}
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
   particles: {fileID: 2646781631121158760, guid: 884c27afed7e62041bab2ef082f301fc, type: 3}
-  explosionSound: {fileID: 0}
   Player: {fileID: 0}
 --- !u!136 &3379980688414236669
 CapsuleCollider:

@@ -3396,6 +3396,8 @@ MonoBehaviour:
   jetPrefab: {fileID: 4122347041611357876, guid: f1eecbb8889afc24db83d6b65cdd454a, type: 3}
   jet: {fileID: 4122347041611357876, guid: f1eecbb8889afc24db83d6b65cdd454a, type: 3}
   radioChest: {fileID: 1092315570}
+  reticle: {fileID: 1107693913}
+  superTACP: 0
   myCamera: {fileID: 963194227}
 --- !u!136 &1326155225
 CapsuleCollider:

@@ -13,11 +13,14 @@ public class MissileController : MonoBehaviour
     {
         if (!col.gameObject.CompareTag("Missile"))
         {
-            //if the missile hits an object that is marked as an Explodeable, it destroys the gameobject and calls its win method
-            if (col.gameObject.CompareTag("Explodeable"))
+            try
             {
-                Destroy(col.gameObject);
-                Win();
+                //if the missile hits an object that is marked as an Explodeable or is within 175 units of the bunker, it destroys the gameobject and calls its win method
+                if (col.gameObject.CompareTag("Explodeable") || Vector3.Distance(transform.position, Player.bunker.transform.position) <= 200f)
+                {
+                    Destroy(Player.bunker);
+                    Win();
+                }
             }
 
             //explodes if it hits anything

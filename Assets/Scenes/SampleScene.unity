@@ -1333,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3594211082126792286, guid: 563e7971ee411b1428569e960247aba5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -37.57
+      value: -37.569946
       objectReference: {fileID: 0}
     - target: {fileID: 3594211082126792286, guid: 563e7971ee411b1428569e960247aba5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3397,6 +3397,7 @@ MonoBehaviour:
   jet: {fileID: 4122347041611357876, guid: f1eecbb8889afc24db83d6b65cdd454a, type: 3}
   radioChest: {fileID: 1092315570}
   reticle: {fileID: 1107693913}
+  bunker: {fileID: 1694278330}
   superTACP: 0
   myCamera: {fileID: 963194227}
 --- !u!136 &1326155225

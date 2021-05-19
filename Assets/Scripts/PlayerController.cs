@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        //gives player the ability to call in strikes wherever they are looking
         if (Input.GetButtonDown("Fire1") && superTACP)
         {
             if (Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out hitInfo))
@@ -106,7 +107,6 @@ public class PlayerController : MonoBehaviour
             GPS.text = "Current X: " + transform.position.x.ToString() + "\nCurrent Z: " + transform.position.z.ToString();
         }
 
-        
         velocity.y += gravity * Time.deltaTime;//increases the veloctiy of the player
 
         controller.Move(velocity * Time.deltaTime);//moves the player down
@@ -141,6 +141,12 @@ public class PlayerController : MonoBehaviour
             xPos.SetActive(true);
             zPos.SetActive(true);
             submit.SetActive(true);
+        }
+
+        //quits game
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            Application.Quit();
         }
     }
 
@@ -180,7 +186,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Win()
     {
-        messages.text = "Congratulations, you destroyed the bunker and beat the game! You've unlocked Super TACP, which lets you call in air strikes by clicking the left and right mouse buttons. Press escape to close this message.";//displays text telling the user that they beat the game
+        messages.text = "Congratulations, you destroyed the bunker and beat the game! You've unlocked Super TACP, which lets you call in air strikes by clicking the left and right mouse buttons. Press escape to close this message and backspace to quit the game.";//displays text telling the user that they beat the game
         superTACP = true;//makes the player super
         reticle.SetActive(true);//sets up the reticle so the player can see where they are pointing
 

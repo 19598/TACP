@@ -33,10 +33,7 @@ public class PlaneController : MonoBehaviour
         if (Vector3.Distance(transform.position, strikeLocation) <= 2000f && canFire)
         {
             canFire = false;
-            for (int i = 0; i < 4; i++)
-            {
-                fireMissiles();
-            }
+            fireMissiles();
             speed *= 1.4f;
         }
 

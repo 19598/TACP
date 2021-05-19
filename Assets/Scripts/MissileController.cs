@@ -8,6 +8,18 @@ public class MissileController : MonoBehaviour
     public Vector3 target;
     public GameObject particles;
     public PlayerController Player;
+    private RaycastHit hitInfo;
+    public bool willHitBunker = false;
+
+    void Start()
+    {
+        //makes raycast to determine if it will hit the bunker
+        Physics.Raycast(transform.position, transform.forward, out hitInfo);
+        if (hitInfo.collider.gameObject.CompareTag("Explodeable"))
+        {
+            willHitBunker = true;
+        }
+    }
 
     void OnCollisionEnter(Collision col)
     {
@@ -15,13 +27,14 @@ public class MissileController : MonoBehaviour
         {
             try
             {
-                //if the missile hits an object that is marked as an Explodeable or is within 175 units of the bunker, it destroys the gameobject and calls its win method
-                if (col.gameObject.CompareTag("Explodeable") || Vector3.Distance(transform.position, Player.bunker.transform.position) <= 200f)
+                //if the missile hits an object that is marked as an Explodeable a raycast determines it will collide with the bunker, it destroys the gameobject and calls its win method
+                if (col.gameObject.CompareTag("Explodeable") || willHitBunker)
                 {
                     Destroy(Player.bunker);
                     Win();
                 }
             }
+            catch { }
 
             //explodes if it hits anything
             Explode();
@@ -30,12 +43,10 @@ public class MissileController : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(target);//points towards the strike location
-
         transform.position += transform.forward * 1500f * Time.deltaTime;//moves the missile forwards
 
-        //explodes if it is low enough or within 5 units of its target
-        if (transform.position.y <= -10 || Vector3.Distance(target, transform.position) <= 10)
+        //explodes if it is low enough
+        if (transform.position.y <= -10)
         {
             Explode();
         }

@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public bool superTACP = false;
     private bool hasGPS = false;
     private float[,] positions = new float[5,2] {{361f, 4714f}, {454f, 4589f}, {519f, 4486f}, {591f, 4589f}, {671f, 4714f}};//positions to spawn the jets at
-    RaycastHit hitInfo;
+    private RaycastHit hitInfo;
     public Camera myCamera;
 
     // Start is called before the first frame update
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //quits game
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Application.Quit();
         }
@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Win()
     {
-        messages.text = "Congratulations, you destroyed the bunker and beat the game! You've unlocked Super TACP, which lets you call in air strikes by clicking the left and right mouse buttons. Press escape to close this message and backspace to quit the game.";//displays text telling the user that they beat the game
+        messages.text = "Congratulations, you destroyed the bunker and beat the game! You've unlocked Super TACP, which lets you call in air strikes by clicking the left and right mouse buttons. Press escape to close this message and Q to quit the game.";//displays text telling the user that they beat the game
         superTACP = true;//makes the player super
         reticle.SetActive(true);//sets up the reticle so the player can see where they are pointing
 
